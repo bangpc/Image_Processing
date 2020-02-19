@@ -1,11 +1,8 @@
 import cv2
 import numpy as np
-from skimage.transform import rotate, AffineTransform, warp
-from skimage.util import random_noise
 import os
-from PIL import Image
-import imutils
 import math
+import glob
 
 '''
     Image rotation
@@ -129,21 +126,24 @@ def contrast_brightness_control(img):
     beta = 1.5  #from 0-100
     return cv2.convertScaleAbs(img,alpha=alpha,beta=beta)
 
+#You can replace path with your own
+img_path = (glob.glob("/home/bang/Desktop/Image_Processing/image/input_augmentation/*"))
 
-path_img = "/home/bang/Desktop/Image_Processing/image/input_augmentation/cat.jpg" 
+#Output directory
 output_dir = "/home/bang/Desktop/Image_Processing/image/output_augmentation/"
 
-img = cv2.imread("/home/bang/Desktop/Image_Processing/image/input_augmentation/cat.jpg",cv2.IMREAD_UNCHANGED)
-
-rotated = rotate_max_area(img,-90)
-cv2.imwrite(os.path.join(output_dir,"output_rotated.png"),rotated)
-img_horizontal_flip = horizontal_flip(img)
-cv2.imwrite(os.path.join(output_dir,"output_horizontal_flip.png"),img_horizontal_flip)
-img_vertical_flip = vertical_flip(img)
-cv2.imwrite(os.path.join(output_dir,"output_vertical_flip.png"),img_vertical_flip)
-img_add_noise = noise_generator("speckle",img)
-cv2.imwrite(os.path.join(output_dir,"output_add_noise_speckle.png"),img_add_noise)
-img_blur_image = blur_image(img)
-cv2.imwrite(os.path.join(output_dir,"output_blur_image.png"),img_blur_image)
-img_contrast_brightness_control = contrast_brightness_control(img)
-cv2.imwrite(os.path.join(output_dir,"output_contrast_brightness_control.png"),img_contrast_brightness_control)
+for path in img_path:
+    name = path.split("/")[-1].split(".")[0]
+    img = cv2 .imread(path,cv2.IMREAD_UNCHANGED)
+    rotated = rotate_max_area(img,-45)
+    cv2.imwrite(os.path.join(output_dir,"output_rotated.png"),rotated)
+    img_horizontal_flip = horizontal_flip(img)
+    cv2.imwrite(os.path.join(output_dir,"output_horizontal_flip.png"),img_horizontal_flip)
+    img_vertical_flip = vertical_flip(img)
+    cv2.imwrite(os.path.join(output_dir,"output_vertical_flip.png"),img_vertical_flip)
+    img_add_noise = noise_generator("gauss",img)
+    cv2.imwrite(os.path.join(output_dir,"output_add_noise_gauss.png"),img_add_noise)
+    img_blur_image = blur_image(img)
+    cv2.imwrite(os.path.join(output_dir,"output_blur_image.png"),img_blur_image)
+    img_contrast_brightness_control = contrast_brightness_control(img)
+    cv2.imwrite(os.path.join(output_dir,"output_contrast_brightness_control.png"),img_contrast_brightness_control)
