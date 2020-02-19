@@ -1,3 +1,4 @@
 # Image_Processing
 This is my image processing code that I usually use 
-![rotated|200x200,20%](https://github.com/bangpc/Image_Processing/blob/master/image/output_augmentation/output_rotated.png)
+![rotated](https://github.com/bangpc/Image_Processing/blob/master/image/output_augmentation/output_rotated.png)
+<img src="./output_rotated.png" width="100" height="100">
