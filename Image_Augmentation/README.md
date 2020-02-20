@@ -1,5 +1,3 @@
-# Image_Processing
-
 ## Image Augmentation
 Source image  
 <img src="https://github.com/bangpc/Image_Processing/blob/master/Image_Augmentation/image/input_augmentation/cat.jpg" width="25%">  
