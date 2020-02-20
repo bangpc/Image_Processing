@@ -2,7 +2,7 @@
 
 ## Image Augmentation
 Source image  
-<img src="https://github.com/bangpc/Image_Processing/blob/master/image/input_augmentation/cat.jpg" width="25%">
+<img src="https://github.com/bangpc/Image_Processing/blob/master/image/input_augmentation/cat.jpg" width="25%">  
 Some resized look like doesn't changed click to image to view whole image 
 |Method|Description|Output|
 |---|---|:---:|
