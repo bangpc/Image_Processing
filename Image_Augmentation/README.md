@@ -1,7 +1,7 @@
 ## Image Augmentation
 - Source image  
 <img src="https://github.com/bangpc/Image_Processing/blob/master/Image_Augmentation/image/input_augmentation/cat.jpg" width="25%">  
-- You just need to put all your image in **input_augmentation** folder and augmentation image with generated to **output_augmentation** folder  
+- You just need to put all your image in **input_augmentation** folder and augmentation image with generated to **output_augmentation** folder <br/>
 - Some resized look like doesn't changed click to image to view whole image 
   
 |Method|Description|Output|
