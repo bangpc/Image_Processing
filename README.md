@@ -4,7 +4,7 @@ This is my image processing code that I usually use
 
 ## Image Augmentation
 Source image  
-<img src="https://github.com/bangpc/Image_Processing/blob/master/image/input_augmentation/cat.jpg" width="30%">
+<img src="https://github.com/bangpc/Image_Processing/blob/master/image/input_augmentation/cat.jpg" width="25%">
 |Method|Description|Output|
 |---|---|:---:|
 |rotate_bound()|rotate image without cut blank gap|<img src="https://github.com/bangpc/Image_Processing/blob/master/image/output_augmentation/output_rotated_bound.png" width="30%">|
@@ -12,7 +12,7 @@ Source image
 |horizontal_flip()|flip image horizontal|<img src="https://github.com/bangpc/Image_Processing/blob/master/image/output_augmentation/output_horizontal_flip.png" width="30%">|
 |vertical_flip()|flip image vertical|<img src="https://github.com/bangpc/Image_Processing/blob/master/image/output_augmentation/output_vertical_flip.png" width="30%">|
 |vertical_flip()|flip image vertical|<img src="https://github.com/bangpc/Image_Processing/blob/master/image/output_augmentation/output_vertical_flip.png" width="30%">|
-|noise_generator()|there are four type : gaussian, s&p, poisson, speckle. The output is gaussian type|<img src="https://github.com/bangpc/Image_Processing/blob/master/image/output_augmentation/output_add_noise_gauss.png" width="30%">|
+|noise_generator()|there are four type : **gaussian, s&p, poisson, speckle**. The output is gaussian type|<img src="https://github.com/bangpc/Image_Processing/blob/master/image/output_augmentation/output_add_noise_gauss.png" width="30%">|
 |blur_image()|blur an image|<img src="https://github.com/bangpc/Image_Processing/blob/master/image/output_augmentation/output_blur_image.png" width="30%">|
 |contrast_brightness_control()|change contrast and brightness|<img src="https://github.com/bangpc/Image_Processing/blob/master/image/output_augmentation/output_contrast_brightness_control.png" width="30%">|
 
