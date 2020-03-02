@@ -122,15 +122,16 @@ def blur_image(img):
 
 
 def contrast_brightness_control(img):
+    # new_pixel(i,j) = alpha * pixel(i,j) + beta
     alpha = 1.5  #from 1.0-3.0
-    beta = 1.5  #from 0-100
+    beta = 0  #from 0-100
     return cv2.convertScaleAbs(img,alpha=alpha,beta=beta)
 
 #You can replace path with your own
-img_path = (glob.glob("/home/bang/Desktop/Image_Processing/image/input_augmentation/*"))
+img_path = (glob.glob("/home/bang/Desktop/Image_Processing/Image_Augmentation/image/input_augmentation/*"))
 
 #Output directory
-output_dir = "/home/bang/Desktop/Image_Processing/image/output_augmentation/"
+output_dir = "/home/bang/Desktop/Image_Processing/Image_Augmentation/image/output_augmentation/"
 
 for path in img_path:
     name = path.split("/")[-1].split(".")[0]
