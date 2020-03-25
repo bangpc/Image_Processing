@@ -30,7 +30,12 @@ def rotate_max_area(image, angle):
     wr, hr = rotatedRectWithMaxArea(image.shape[1], image.shape[0],
                                     math.radians(angle))
     rotated = rotate_bound(image, angle)
-    h, w, _ = rotated.shape
+    if len(image.shape)==3 :
+        h, w, _ = rotated.shape
+    elif len(image.shape)==2 :
+        h, w = rotated.shape
+    else:
+        raise Exception('Channel image error')
     y1 = h//2 - int(hr/2)
     y2 = y1 + int(hr)
     x1 = w//2 - int(wr/2)
@@ -121,11 +126,31 @@ def blur_image(img):
     return cv2.blur(img, (10,10))
 
 
-def contrast_brightness_control(img):
-    # new_pixel(i,j) = alpha * pixel(i,j) + beta
-    alpha = 1.5  #from 1.0-3.0
-    beta = 0  #from 0-100
-    return cv2.convertScaleAbs(img,alpha=alpha,beta=beta)
+def brightness_control(img, gamma=1.0):
+    # build a lookup table mapping the pixel values [0, 255] to their adjusted gamma values
+    #use gamma<1 to make image darker
+    #use gamma>1 to make image brighter
+    invGamma = 1.0 / gamma
+    table = np.array([((i / 255.0) ** invGamma) * 255
+        for i in np.arange(0, 256)]).astype("uint8")
+    # apply gamma correction using the lookup table
+    return cv2.LUT(img,table)
+
+def zoom_in(img,scale):
+    center_x, center_y = img.shape[1] / 2, img.shape[0] / 2
+    width_scaled, height_scaled = img.shape[1] * scale, img.shape[0] * scale
+    left_x, right_x = center_x - width_scaled / 2, center_x + width_scaled / 2
+    top_y, bottom_y = center_y - height_scaled / 2, center_y + height_scaled / 2
+    if len(img.shape)==3:
+        img_cropped = img[int(top_y):int(bottom_y), int(left_x):int(right_x),:]
+        h,w,_ = img.shape
+    elif len(img.shape)==2:
+        img_cropped = img[int(top_y):int(bottom_y), int(left_x):int(right_x)]
+        h,w = img.shape
+    else:
+        raise Exception('Channel image error')
+    zoom = cv2.resize(img_cropped,(w,h),interpolation = cv2.INTER_AREA)
+    return zoom
 
 #You can replace path with your own
 img_path = (glob.glob("/home/bang/Desktop/Image_Processing/Image_Augmentation/image/input_augmentation/*"))
@@ -148,5 +173,7 @@ for path in img_path:
     cv2.imwrite(os.path.join(output_dir,"output_add_noise_gauss.png"),img_add_noise_gauss)
     img_blur_image = blur_image(img)
     cv2.imwrite(os.path.join(output_dir,"output_blur_image.png"),img_blur_image)
-    img_contrast_brightness_control = contrast_brightness_control(img)
-    cv2.imwrite(os.path.join(output_dir,"output_contrast_brightness_control.png"),img_contrast_brightness_control)
+    img_brightness_control = brightness_control(img,gamma = 1.6)
+    cv2.imwrite(os.path.join(output_dir,"output_contrast_brightness_control.png"),img_brightness_control)
+    img_zoom = zoom_in(img,0.8)
+    cv2.imwrite(os.path.join(output_dir,"output_zoom_in.png"),img_zoom)

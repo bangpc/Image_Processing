@@ -14,5 +14,6 @@
 |vertical_flip()|flip image vertical|<img src="https://github.com/bangpc/Image_Processing/blob/master/Image_Augmentation/image/output_augmentation/output_vertical_flip.png" width="30%">|
 |noise_generator()|there are four type : **gaussian, s&p, poisson, speckle**. The output is gaussian type|<img src="https://github.com/bangpc/Image_Processing/blob/master/Image_Augmentation/image/output_augmentation/output_add_noise_gauss.png" width="30%">|
 |blur_image()|blur an image|<img src="https://github.com/bangpc/Image_Processing/blob/master/Image_Augmentation/image/output_augmentation/output_blur_image.png" width="30%">|
-|contrast_brightness_control()|change contrast and brightness|<img src="https://github.com/bangpc/Image_Processing/blob/master/Image_Augmentation/image/output_augmentation/output_contrast_brightness_control.png" width="30%">|
+|brightness_control()|change brightness of an image|<img src="https://github.com/bangpc/Image_Processing/blob/master/Image_Augmentation/image/output_augmentation/output_brightness_control.png" width="30%">|
+|zoom_in() | zoom in an image by scale|<img src="https://github.com/bangpc/Image_Processing/blob/master/Image_Augmentation/image/output_augmentation/output_zoom_in.png" width="30%">
 
