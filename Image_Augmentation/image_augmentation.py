@@ -174,6 +174,6 @@ for path in img_path:
     img_blur_image = blur_image(img)
     cv2.imwrite(os.path.join(output_dir,"output_blur_image.png"),img_blur_image)
     img_brightness_control = brightness_control(img,gamma = 1.6)
-    cv2.imwrite(os.path.join(output_dir,"output_contrast_brightness_control.png"),img_brightness_control)
+    cv2.imwrite(os.path.join(output_dir,"output_brightness_control.png"),img_brightness_control)
     img_zoom = zoom_in(img,0.8)
     cv2.imwrite(os.path.join(output_dir,"output_zoom_in.png"),img_zoom)
